@@ -15,8 +15,12 @@ RUN apt update \
         python3-pip \
         python3-venv
 
-# Install latest rust
-RUN curl --proto '=https' --tlsv1.3 https://sh.rustup.rs -sSf | sh -s -- -y
+# Install latest rust and rust-analyser
+RUN curl --proto '=https' --tlsv1.3 https://sh.rustup.rs -sSf | sh -s -- -y \
+    && curl -L \
+        https://github.com/rust-lang/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz \
+        | gunzip -c - > /usr/bin/rust-analyzer \
+    && chmod +x /usr/bin/rust-analyzer
 
 # Get the source code
 RUN git clone https://github.com/csegarragonz/rust-book /rust-book \
