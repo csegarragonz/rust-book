@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  cli:
+    image: csegarragonz/rust-book:${RUST_BOOK_VERSION}
+    working_dir: /
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./:/rust-book
