@@ -30,8 +30,4 @@ pip_cmd install -U pip
 pip_cmd install -U setuptools wheel
 pip_cmd install -r requirements.txt
 
-pushd ${PROJ_ROOT}/third-party/cpp
-pip_cmd install -e .
-popd >> /dev/null
-
 popd >> /dev/null
